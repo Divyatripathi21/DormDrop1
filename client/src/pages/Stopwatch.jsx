@@ -9,7 +9,7 @@ const Stopwatch = () => {
   const { currentReceiver } = useSelector((state) => state.RECEIVER);
   var c = currentReceiver.waitTime;
   const [countdown, setCountdown] = useState(c);
-
+  
   useEffect(() => {
     const storedCountdown = localStorage.getItem("countdown");
     const endTime = localStorage.getItem("endTime");

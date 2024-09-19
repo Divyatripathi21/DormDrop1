@@ -12,7 +12,7 @@ const Rec2Stopwatch = () => {
 
   const navigate = useNavigate();
 
-  const c = currentRecSideSender.waitTime;
+  const c = 1;
   const [countdown, setCountdown] = useState(c);
 
   const socket = io.connect("https://dormdrop.onrender.com");  //https://dormdrop.onrender.com //http://localhost:3000
