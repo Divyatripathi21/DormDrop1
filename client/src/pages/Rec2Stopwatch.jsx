@@ -15,16 +15,18 @@ const Rec2Stopwatch = () => {
   const c = 1;
   const [countdown, setCountdown] = useState(c);
 
-  const socket = io.connect("https://dormdrop.onrender.com");  //https://dormdrop.onrender.com //http://localhost:3000
- 
+  
   useEffect(() => {
+    const socket = io.connect("https://dormdrop.onrender.com");  //https://dormdrop.onrender.com //http://localhost:3000
     socket.on("connect", () => {
       console.log("Connected to server");
     });
 
     socket.on("sendMessageToClient2", (data) => {
       console.log("Received message from server:", data);
+      console.log("coming from index");
       if (data === "yes") {
+        console.log("11");
         navigate("/successfullyreceived");
         navigate("/ratings");
       }

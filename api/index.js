@@ -67,6 +67,7 @@ io.on("connection", (socket) => {
 
     socket.broadcast.emit("sendMessageToClient2", data.message);
     console.log("Sent message to Client 2");
+    console.log("connected at index.js");
   });
 });
 

@@ -81,11 +81,12 @@ const AfterPickingTimer = () => {
     if (!otpData) {
       console.log("enter otp");
     }
-    if (otpData == currentOtp) {
+    if (otpData === currentOtp) {
       const socket = io.connect("https://dormdrop.onrender.com"); //https://dormdrop.onrender.com  //http://localhost:3000
       
       socket.on("connect", () => {
         console.log("Connected to server");
+        console.log("connected from afterpicking");
         socket.emit("Verified", { message: "yes" });
       });
     
