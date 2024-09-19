@@ -5,28 +5,26 @@ import { io } from "socket.io-client";
 import AnimatedHourglass from "../components/AnimatedHourglass";
 import SP from "./block.jpg";
 
+let socket;
+
 const Rec2Stopwatch = () => {
   const { currentRecSideSender } = useSelector((state) => state.RECSIDESENDER);
-
-  console.log(`this is====${currentRecSideSender}`);
-
   const navigate = useNavigate();
 
   const c = 1;
   const [countdown, setCountdown] = useState(c);
 
-  
-  const socket = io.connect("https://dormdrop.onrender.com");  //https://dormdrop.onrender.com //http://localhost:3000
   useEffect(() => {
+    // Initialize socket connection only once
+    socket = io.connect("https://dormdrop.onrender.com"); //https://dormdrop.onrender.com  //http://localhost:3000
+
     socket.on("connect", () => {
       console.log("Connected to server");
     });
 
     socket.on("sendMessageToClient2", (data) => {
       console.log("Received message from server:", data);
-      console.log("coming from index");
       if (data === "yes") {
-        console.log("11");
         navigate("/successfullyreceived");
         navigate("/ratings");
       }
@@ -36,13 +34,13 @@ const Rec2Stopwatch = () => {
       console.log("Disconnected from server");
     });
 
+    // Cleanup socket connection when component unmounts
     return () => {
-      socket.off("connect");
-      socket.off("sendMessageToClient2");
-      socket.off("disconnect");
+      socket.disconnect();
     };
-  }, [navigate, socket]);
+  }, [navigate]);
 
+  // Handle countdown logic
   useEffect(() => {
     const storedCountdown = localStorage.getItem("countdown");
     const endTime = localStorage.getItem("endTime");
@@ -51,23 +49,24 @@ const Rec2Stopwatch = () => {
       const now = new Date().getTime();
       const remainingTime = endTime - now;
       if (remainingTime > 0) {
-        setCountdown(Math.floor(remainingTime / 1000)); // Convert milliseconds to seconds
+        setCountdown(Math.floor(remainingTime / 1000));
       } else {
         localStorage.removeItem("countdown");
         localStorage.removeItem("endTime");
       }
     } else if (c) {
-      const endTime = new Date().getTime() + c * 60 * 1000; // Convert waitTime to milliseconds
+      const endTime = new Date().getTime() + c * 60 * 1000;
       localStorage.setItem("endTime", endTime);
-      setCountdown(c * 60); // Convert waitTime to seconds
+      setCountdown(c * 60);
     }
   }, [c]);
 
+  // Update countdown every second
   useEffect(() => {
     if (countdown > 0) {
       const countdownInterval = setInterval(() => {
         setCountdown((prevCountdown) => {
-          const newCountdown = Math.max(prevCountdown - 1, 0); // Ensure countdown never goes below 0
+          const newCountdown = Math.max(prevCountdown - 1, 0);
           localStorage.setItem("countdown", newCountdown);
           return newCountdown;
         });
@@ -80,10 +79,11 @@ const Rec2Stopwatch = () => {
     }
   }, [countdown]);
 
+  // Refresh the page every 60 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       window.location.reload();
-    }, 60000); // 60000 milliseconds = 1 minute
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);
