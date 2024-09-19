@@ -31,7 +31,7 @@ const server =createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",     //http://localhost:5173  //https://dormdrop.onrender.com
+    origin: "https://dormdrop.onrender.com",     //http://localhost:5173  //https://dormdrop.onrender.com
     methods:["GET","POST"],
     credentials:true,
   },
@@ -39,7 +39,7 @@ const io = new Server(server, {
 
 app.use(cors(
   {
-    origin: "http://localhost:5173",       //https://dormdrop.onrender.com  //http://localhost:5173
+    origin: "https://dormdrop.onrender.com",       //https://dormdrop.onrender.com  //http://localhost:5173
   }
 ))
 

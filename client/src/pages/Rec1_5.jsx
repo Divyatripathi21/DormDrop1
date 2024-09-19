@@ -8,7 +8,7 @@ export default function Rec1_5() {
   const navigate = useNavigate();
   const { currentRecSideSender } = useSelector((state) => state.RECSIDESENDER);
 
-  const socket = io.connect("http://localhost:3000"); //https://dormdrop.onrender.com  //http://localhost:3000
+  const socket = io.connect("https://dormdrop.onrender.com"); //https://dormdrop.onrender.com  //http://localhost:3000
 
   useEffect(() => {
     socket.on("connect", () => {

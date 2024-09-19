@@ -18,7 +18,7 @@ const Receiver = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const socket = io("http://localhost:3000");
+    const socket = io("https://dormdrop.onrender.com");
 
     //http://localhost:3000
     //  https://dormdrop.onrender.com

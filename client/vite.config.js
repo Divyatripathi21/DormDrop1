@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',       //https://dormdrop.onrender.com   //http://localhost:3000
+        target: 'https://dormdrop.onrender.com',       //https://dormdrop.onrender.com   //http://localhost:3000
         secure: false,
       },
     },

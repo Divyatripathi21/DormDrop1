@@ -40,7 +40,7 @@ const SendOTP = () => {
         console.log(data.otp);
         dispatch(theOtp(data.otp));
         //sending this to index.js to rec 1_5
-        const socket = io.connect("http://localhost:3000");
+        const socket = io.connect("https://dormdrop.onrender.com");
 
         //   https://dormdrop.onrender.com
         //http://localhost:3000

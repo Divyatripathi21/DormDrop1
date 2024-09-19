@@ -32,7 +32,7 @@ const ReceiverEnd1 = () => {
           console.log(`f is ${f}`);
           console.log(currentUser.username);
 
-          const socket = io.connect("http://localhost:3000");
+          const socket = io.connect("https://dormdrop.onrender.com");
           //https://dormdrop.onrender.com
           //http://localhost:3000
           socket.on("connect", () => {
