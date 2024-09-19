@@ -82,11 +82,13 @@ const AfterPickingTimer = () => {
       console.log("enter otp");
     }
     if (otpData == currentOtp) {
-      const socket = io.connect("https://dormdrop.onrender.com "); //https://dormdrop.onrender.com  //http://localhost:3000
+      const socket = io.connect("https://dormdrop.onrender.com"); //https://dormdrop.onrender.com  //http://localhost:3000
+      
       socket.on("connect", () => {
         console.log("Connected to server");
         socket.emit("Verified", { message: "yes" });
       });
+    
       toast.success("OTP verified SUCCESSFULLY");
       navigate("/successfullydelivered");
     } else {
