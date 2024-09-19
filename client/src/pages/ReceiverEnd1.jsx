@@ -13,8 +13,8 @@ const ReceiverEnd1 = () => {
   const [dataFetched, setDataFetched] = useState(false); // Flag to indicate whether data has been fetched
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {t1}=useParams();
-  // const t1 = 0.2;
+  // const {t1}=useParams();
+  const t1 = 1;
 
   useEffect(() => {
     const fetchSenderData = async () => {

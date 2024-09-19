@@ -8,7 +8,7 @@ const Rec1Stopwatch = () => {
   const navigate = useNavigate();
   const { currentRecSideSender } = useSelector((state) => state.RECSIDESENDER);
   const { t1 } = useParams();
-  const c = t1;
+  const c = 1;
   const [countdown, setCountdown] = useState(c);
 
   useEffect(() => {

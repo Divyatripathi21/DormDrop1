@@ -10,7 +10,7 @@ const AfterPickingTimer = () => {
   const navigate = useNavigate();
   const { currentReceiver } = useSelector((state) => state.RECEIVER);
   const { currentOtp } = useSelector((state) => state.OTP);
-  var time = currentReceiver.waitTime;
+  var time = 1;
 
   const [countdown, setCountdown] = useState(time);
   const [alreadyReached, setalreadyReached] = useState(false);
