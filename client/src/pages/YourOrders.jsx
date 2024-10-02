@@ -84,12 +84,12 @@ export default function YourOrders() {
                         <span className="">Registration Number:</span>{" "}
                         {sender.registrationNumber}
                       </li>
-                      <li>
+                      {/* <li>
                         <span className="">Block:</span> {sender.block}
                       </li>
                       <li>
                         <span className="">Room:</span> {sender.room}
-                      </li>
+                      </li> */}
                     </ul>
                   </div>
                 ))}
