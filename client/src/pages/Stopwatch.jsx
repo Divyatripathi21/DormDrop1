@@ -7,7 +7,7 @@ import SP from "./cycle.jpg";
 const Stopwatch = () => {
   const navigate = useNavigate();
   const { currentReceiver } = useSelector((state) => state.RECEIVER);
-  var c = 1;
+  const c = 1;                                     //change no. -1
   const [countdown, setCountdown] = useState(c);
   
   useEffect(() => {
