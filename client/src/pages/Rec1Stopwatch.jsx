@@ -9,7 +9,7 @@ const Rec1Stopwatch = () => {
   const { currentRecSideSender } = useSelector((state) => state.RECSIDESENDER);
   const { t1 } = useParams();
   const c = 1;
-  const [countdown, setCountdown] = useState(c);
+  const [countdown, setCountdown] = useState(c*60);
 
   useEffect(() => {
     const storedCountdown = localStorage.getItem("countdown");
