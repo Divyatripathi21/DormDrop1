@@ -8,7 +8,7 @@ const Stopwatch = () => {
   const navigate = useNavigate();
   const { currentReceiver } = useSelector((state) => state.RECEIVER);
   const c = 1;                                     //change no. -1
-  const [countdown, setCountdown] = useState(c);
+  const [countdown, setCountdown] = useState(c*60);
   
   useEffect(() => {
     const storedCountdown = localStorage.getItem("countdown");
